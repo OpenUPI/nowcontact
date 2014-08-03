@@ -25,7 +25,7 @@ Berikut adalah beberapa *screenshot* yang dapat Anda lihat:
 
 * Halaman Utama
 
-[halaman utama](https://dl.dropboxusercontent.com/u/54840757/nowcontact/nowcontact-1.png
+[halaman utama](https://dl.dropboxusercontent.com/u/54840757/nowcontact/nowcontact-1.png)
 
 * Halaman Tambah Kontak
 
