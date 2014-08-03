@@ -29,10 +29,10 @@ Berikut adalah beberapa *screenshot* yang dapat Anda lihat:
 
 * Halaman Tambah Kontak
 
-[halaman tambah kontak](https://dl.dropboxusercontent.com/u/54840757/nowcontact/nowcontact-2.png)
+![halaman tambah kontak](https://dl.dropboxusercontent.com/u/54840757/nowcontact/nowcontact-2.png)
 
 * Halaman Edit Kontak
 
-[halaman edit kontak](https://dl.dropboxusercontent.com/u/54840757/nowcontact/nowcontact-3.png)
+![halaman edit kontak](https://dl.dropboxusercontent.com/u/54840757/nowcontact/nowcontact-3.png)
 
 Semoga bermanfaat :D
