@@ -1,0 +1,23 @@
+<div class="col-md-6 col-md-offset-3" ng-controller="listContactCtrl">
+    <div class="page-header">
+        <h1>
+            <span class="glyphicon glyphicon-list"></span> List Contact | 
+            <a href="#/add"><span class="glyphicon glyphicon-plus"></span> Add Contact </a>
+        </h1>
+       
+    </div>
+    <div class="well" ng-repeat="contact in listContact">
+        <address>
+          <strong>{{ contact.name }} mail to {{ contact.email }}</strong><br>
+          Facebook: {{ contact.facebook }}<br>
+          Twitter: {{ contact.twitter }}<br>
+          Website: {{ contact.website }}<br>
+          <abbr title="Phone">Phone:</abbr> {{ contact.phone }}
+        </address>
+        <div class="btn-group">
+          <a href="#/edit/{{ contact.id_contact }}" class="btn btn-primary">Edit</a>
+          <a href="" class="btn btn-danger" ng-click="deleteContact(contact.id_contact)">Delete</a>
+        </div>
+
+    </div>
+</div>

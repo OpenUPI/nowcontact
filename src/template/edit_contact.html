@@ -1,0 +1,52 @@
+<div class="col-md-6 col-md-offset-3"  ng-controller="updateContactCtrl">
+
+    <div class="page-header">
+        <h1> <a href="#/"><span class="glyphicon glyphicon-list"></span> List Contact</a> | <span class="glyphicon glyphicon-plus"></span> Edit Contact </h1>
+    </div>
+
+    <div id="messages" class="">{{ message }}</div>
+
+    <form ng-submit="processForm()">
+        <div id="name-group" class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" placeholder="ex: Bejo" ng-model="formData.name" value="{{ formData.0 }}">
+            <span class="help-block" ng-show="errorName">{{ errorName }}</span>
+        </div>
+        <div id="phone-group" class="form-group">
+            <label>Phone</label>
+            <input type="text" name="phone" class="form-control" placeholder="ex: 085789135xxx" ng-model="formData.phone"  value="{{ formData.phone }}">
+            <span class="help-block" ng-show="errorPhone">{{ errorPhone }}</span>
+        </div>
+        <div id="email-group" class="form-group">
+            <label>E-Mail</label>
+            <input type="text" name="email" class="form-control" placeholder="ex: bejo123@yourmail.com" ng-model="formData.email"  value="{{ formData.email }}">
+            <span class="help-block" ng-show="errorEmail">{{ errorEmail }}</span>
+        </div>
+        <div id="facebook-group" class="form-group">
+            <label>Facebook</label>
+            <input type="text" name="facebook" class="form-control" placeholder="ex: http://www.facebook.com/bejobejos" ng-model="formData.facebook" value="{{ formData.facebook }}">
+            <span class="help-block"></span>
+        </div>
+        <div id="twitter-group" class="form-group">
+            <label>Twitter</label>
+            <input type="text" name="twitter" class="form-control" placeholder="ex: @bejobejos" ng-model="formData.twitter" value="{{ formData.twitter }}">
+            <span class="help-block"></span>
+        </div>
+        <div id="website-group" class="form-group">
+            <label>Website</label>
+            <input type="text" name="website" class="form-control" placeholder="ex: http://yoursite.com" ng-model="formData.website" value="{{ formData.website }}">
+            <span class="help-block"></span>
+        </div>
+        <div id="about-group" class="form-group">
+            <label>About</label>
+            <textarea name="about" class="form-control" placeholder="ex: I'am superman" ng-model="formData.about">
+                {{ formData.about }}
+            </textarea>
+            <span class="help-block"></span>
+        </div>
+        <input type="hidden" ng-model="formData.id_contact" value="{{ formData.id_contact }}" />
+        <button type="submit" class="btn btn-warning btn-lg btn-block">
+             Submit!
+        </button>
+    </form>
+</div>

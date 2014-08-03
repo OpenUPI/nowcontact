@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Now Contact</title>
+        <script src="../assets/angular/angular.js"></script>
+        <script src="../assets/angular/angular-route.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+        <script type="text/javascript">
+            var contactApp = angular.module('contactApp', ['ngRoute']);
+            
+            function updateContactCtrl($scope, $http, $routeParams, $location){
+                console.log($routeParams.id);
+                $scope.formData = {};
+                
+                if ($routeParams.id != undefined){
+                    $http.get('get_contact_by_id.php?id='+$routeParams.id).
+                        success(function(data, status, headers, config){
+                            console.log(data);
+                            $scope.formData = data;
+                        }).
+                        error(function(data, status, headers, config){
+                            console.log('error');
+                        });
+                }
+            
+                $scope.processForm = function(){
+                    $http({
+                        method  : 'POST',
+                        url     : 'update_contact.php',
+                        data    : $.param($scope.formData),  // pass in data as strings
+                        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+                    }).success(function(data){
+                        console.log(data);
+                        $scope.message = data.message;
+                        if (data.success){
+                            $scope.formData = {};  
+                            $location.path('/index');
+                        }
+                        else{
+                            $scope.errorName = data.errors.name;
+                            $scope.errorEmail = data.errors.email;
+                            $scope.errorPhone = data.errors.phone;
+                        }
+                    });
+                };
+            }
+            
+            function listContactCtrl($scope, $http, $location){
+                $scope.listContact = {};
+                $http.get('get_contact.php').success(function(data){
+                    console.log(data);
+                    $scope.listContact = data;
+                });
+                
+                $scope.deleteContact = function(contact_id){
+                    console.log(contact_id);
+                     $http.get('delete_contact.php?id='+contact_id).
+                        success(function(data, status, headers, config){
+                            $location.path('/index');
+                        }).
+                        error(function(data, status, headers, config){
+                            console.log('error');
+                        });
+                }
+            }
+            
+            contactApp.config(function($routeProvider, $locationProvider){
+                $routeProvider.when('/', {
+                    controller: 'listContactCtrl',
+                    templateUrl: 'template/list_contact.html'
+                }).when('/add', {
+                    controller: 'updateContactCtrl',
+                    templateUrl: 'template/add_contact.html'
+                }).when('/edit/:id', {
+                    controller: 'updateContactCtrl',
+                    templateUrl: 'template/edit_contact.html'
+                }).otherwise({
+                    redirectTo: '/'
+                });
+            });
+        </script>
+    </head>
+    <body ng-app="contactApp">
+        <div class="container">
+            <ng-view></ng-view>
+        </div>
+    </body>
+</html>
