@@ -7,10 +7,10 @@ Contoh aplikasi daftar kontak menggunakan AngularJS + Bootstrap + PHP + MySQL. B
 - melihat daftar kontak
 - memperbaharui sebuah kontak
 - menghapus sebuah kontak
+- pencarian kontak
 
 Fitur lain yang belum ditambahkan:
 
-- pencarian kontak
 - pengelompokkan kontak berdasarkan grup
 - pengelompokkan kontak berdasarkan abjad
 - *export* kontak ke format JSON, XML, atau CSV
