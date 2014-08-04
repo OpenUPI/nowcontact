@@ -62,7 +62,15 @@
                         error(function(data, status, headers, config){
                             console.log('error');
                         });
-                }
+                };
+                
+                $scope.searchContact = function(id){
+                    console.log($scope.searchContactData);
+                    $http.get('get_contact.php?q='+$scope.searchContactData).success(function(data){
+                        console.log(data);
+                        $scope.listContact = data;
+                    });
+                };
             }
             
             contactApp.config(function($routeProvider, $locationProvider){

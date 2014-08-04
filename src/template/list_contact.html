@@ -6,6 +6,12 @@
         </h1>
        
     </div>
+    <div class="well">
+        <div id="name-group" class="form-group">
+            <label>Search contact here:</label>
+            <input type="text" name="name" class="form-control" placeholder="ex: Bejo" ng-model="searchContactData" ng-keyup="searchContact()" />
+        </div>
+    </div>
     <div class="well" ng-repeat="contact in listContact">
         <address>
           <strong>{{ contact.name }} mail to {{ contact.email }}</strong><br>
